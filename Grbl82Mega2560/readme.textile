@@ -1,0 +1,10 @@
+//------------------------------------------------------------------------------
+This code is a copy of an old website disappeared Sept. 19, 2013 (EliteEng/grl-0.81 4 axis)
+I just corrected the errors array dimensions -> grbl-0.82.
+
+Nota : https://github.com/EliteEng/grbl who recently reappeared in but with a copy
+of Grbl-8c which only manage three axes. These two versions are different.
+
+LETARTARE
+//------------------------------------------------------------------------------
+
