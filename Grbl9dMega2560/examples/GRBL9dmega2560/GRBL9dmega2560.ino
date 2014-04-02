@@ -1,5 +1,5 @@
 /*
-    Grbl_9dUno.ino BY LETARTARE
+    Grbl_9dMega2560.ino BY LETARTARE
     This file is an adaptation of Grbl-0.9d work with Arduino-xxx.
 
   Grbl is free software: you can redistribute it and/or modify
@@ -16,8 +16,8 @@
 
 /*
 
-	Supported hardware from config.h :
-        Arduino Uno 328p / 115200 bauds  (3 axis)
+	Supported hardware from config.h
+		Arduino Mega 2560 / 115200 bauds  (3 axis)
     Supported sofware
         grbl 0.9d 
 
