@@ -3,7 +3,8 @@ Grbl_with_Arduino
 
 This is an adaptation to build Grbl-xxx in Arduino-xxx (actually xxx=1.0.5 or 1.0.5r2)
 
-You simply copy the "GrblxxBoard" directory in "rduino-xxx/libraries"
+You simply copy the "GrblxxBoard" directory in "Arduino-xxx/libraries"
+
 
 A- Grbl82Mega2560  : grbl-0.82 for Mega2560 57600 bauds  4 axis
                     grbl-0.82 is an adapted version of grbl-0.81
