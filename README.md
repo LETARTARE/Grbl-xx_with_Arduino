@@ -15,6 +15,11 @@ Grbl9dMega2560  : grbl-0.9d for Mega2560 115200 bauds  3 axis
 
 Grbl9dUno       : grbl-0.9d for Uno328p 115200 bauds  3 axis
 
+Example for Grbl-0.9d for Uno :
+1- copy "Grbl9dUno" in "Arduino-105/libraries",
+2- load in "Arduino-105" "Examples/Grbl9dUno/Grbl9dUno.ino",
+3- compile and upload the Uno card
+
 
 
 
