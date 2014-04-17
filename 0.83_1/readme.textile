@@ -16,7 +16,7 @@ Modified files:
 - readme.textile        : this file
 //------------------------------------------------------------------------------
 17-04-2014
-0.83_1 : by infobarquée and icare du forum "http://forum.arduino.cc" french
+0.83_1 : by infobarquée and icare -> french forum "http://forum.arduino.cc"
 
 The appointed axis C (about Z) is modified in A (around X)
 
