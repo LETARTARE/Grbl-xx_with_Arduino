@@ -1,0 +1,38 @@
+//------------------------------------------------------------------------------
+This version 0.83 is an adaptation of "Mega2560-grbl-0.81" work with Arduino-xxx
+
+
+LETARTARE   17-04-2014 (french date)
+//------------------------------------------------------------------------------
+0.83_0 :
+
+Functions Gcode-modified
+M3, M4, M5 and M7, M8, M9 functioning properly active low (configurable in "config.h")
+
+Modified files:
+- config.h              : active low (or high) for pins 6, 36, 35, 37
+- spindle_control.cpp   : M3, M4, M5
+- coolant_control.cpp   : M7, M8, M9
+- readme.textile        : this file
+//------------------------------------------------------------------------------
+17-04-2014
+0.83_1 : by infobarquée and icare du forum "http://forum.arduino.cc" french
+
+The appointed axis C (about Z) is modified in A (around X)
+
+Modified files:
+- gcode.cpp
+- limits.c
+- main.c
+- nuts_bolts.h
+- planner.c
+- protocol.c
+- settings.c
+- stepper.c
+//--------------------------------------------------------------------------------
+
+
+
+
+
+
