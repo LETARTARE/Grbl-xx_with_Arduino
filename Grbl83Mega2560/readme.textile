@@ -14,3 +14,5 @@ Modified files:
 - spindle_control.cpp   : M3, M4, M5
 - coolant_control.cpp   : M7, M8, M9
 - readme.textile        : this file
+
+//------------------------------------------------------------------------------
