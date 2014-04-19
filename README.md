@@ -12,7 +12,7 @@ These are adaptations to build Grbl-xxx in Arduino-xxx (actually xxx=1.0.5 or 1.
 A- Grbl83Mega2560  : grbl-0.83 for Mega2560 57600 bauds  4 axis  X, Y, Z, C
                      with M3, M4, M5 and M7, M8, M9 functioning properly active
                      low (configurable in "config.h")
-A- Grbl84Mega2560  : grbl-0.84 for Mega2560 57600 bauds  4 axis  X, Y, Z, A
+B- Grbl84Mega2560  : grbl-0.84 for Mega2560 57600 bauds  4 axis  X, Y, Z, A
                       axis C -> axis A
 
 C- Grbl8cUno       : grbl-0.8c for Uno328p 115200 bauds  3 axis
