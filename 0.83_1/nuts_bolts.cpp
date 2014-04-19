@@ -47,7 +47,8 @@ void delay_ms(uint16_t ms)
 
 // Delays variable defined microseconds. Compiler compatibility fix for _delay_us(),
 // which only accepts constants in future compiler releases.
-void delay_us(uint16_t us) 
+/// LETARTARE   uint16_t -> uint32_t
+void delay_us(uint32_t us) 
 {
   while (us) {
 if (us < 10) { 

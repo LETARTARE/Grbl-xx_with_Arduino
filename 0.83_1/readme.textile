@@ -22,13 +22,14 @@ The appointed axis C (about Z) is modified in A (around X)
 
 Modified files:
 - gcode.cpp
-- limits.c
-- main.c
-- nuts_bolts.h
-- planner.c
-- protocol.c
-- settings.c
-- stepper.c
+- limits.cpp
+- main.cpp
+- nuts_bolts.h     N_AXIS
+- nuts_bolts.cpp
+- planner.cpp
+- protocol.cpp
+- settings.cpp
+- stepper.cpp
 //--------------------------------------------------------------------------------
 
 

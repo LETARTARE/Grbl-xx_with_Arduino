@@ -107,12 +107,13 @@ void gc_init()
 }
 
 // Sets g-code parser position in mm. Input in steps. Called by the system abort routine.
-void gc_set_current_position(int32_t x, int32_t y, int32_t z, int32_t c)
+/// LETARTARE c -> a
+void gc_set_current_position(int32_t x, int32_t y, int32_t z, int32_t a)
 {
   gc.position[X_AXIS] = x/settings.steps_per_mm[X_AXIS];
   gc.position[Y_AXIS] = y/settings.steps_per_mm[Y_AXIS];
   gc.position[Z_AXIS] = z/settings.steps_per_mm[Z_AXIS]; 
-  gc.position[A_AXIS] = c/settings.steps_per_mm[A_AXIS];
+  gc.position[A_AXIS] = a/settings.steps_per_mm[A_AXIS];
 }
 
 // Clears and zeros g-code parser position. Called by homing routine.
@@ -143,8 +144,8 @@ uint8_t gc_execute_line(char *line)
   double inverse_feed_rate = -1; // negative inverse_feed_rate means no inverse_feed_rate specified
   uint8_t absolute_override = false; // true(1) = absolute motion for this block only {G53}
   uint8_t non_modal_action = NON_MODAL_NONE; // Tracks the actions of modal group 0 (non-modal)
-  
-  double target[4], offset[4];
+/// LETARTARE 4 -> N_AXIS
+  double target[N_AXIS], offset[N_AXIS];
   clear_vector(target); // XYZ(ABC) axes parameters.
   clear_vector(offset); // IJK Arc offsets are incremental. Value of zero indicates no change.
     
@@ -277,7 +278,8 @@ uint8_t gc_execute_line(char *line)
       case 'X': target[X_AXIS] = to_millimeters(value); bit_true(axis_words,bit(X_AXIS)); break;
       case 'Y': target[Y_AXIS] = to_millimeters(value); bit_true(axis_words,bit(Y_AXIS)); break;
       case 'Z': target[Z_AXIS] = to_millimeters(value); bit_true(axis_words,bit(Z_AXIS)); break;
-      case 'C': target[A_AXIS] = to_millimeters(value); bit_true(axis_words,bit(A_AXIS)); break;
+      /// LETARTARE 'C' -> 'A'
+      case 'A': target[A_AXIS] = to_millimeters(value); bit_true(axis_words,bit(A_AXIS)); break;
     }
   }
   
@@ -318,7 +320,8 @@ uint8_t gc_execute_line(char *line)
         int_value--; // Adjust p to be inline with row array index. 
         // Update axes defined only in block. Always in machine coordinates. Can change non-active system.
         uint8_t i;
-        for (i=0; i<=3; i++) { // Axes indices are consistent, so loop may be used.
+    /// LETARTARE i<=3 -> i<N_AXIS
+        for (i=0; i<N_AXIS; i++) { // Axes indices are consistent, so loop may be used.
           if ( bit_istrue(axis_words,bit(i)) ) { sys.coord_system[int_value][i] = target[i]; }
         }
       }
@@ -330,7 +333,8 @@ uint8_t gc_execute_line(char *line)
       if (axis_words) {
         // Apply absolute mode coordinate offsets or incremental mode offsets.
         uint8_t i;
-        for (i=0; i<=3; i++) { // Axes indices are consistent, so loop may be used.
+      /// LETARTARE i<=3 -> i<N_AXIS
+        for (i=0; i<N_AXIS; i++) { // Axes indices are consistent, so loop may be used.
           if ( bit_istrue(axis_words,bit(i)) ) {
             if (gc.absolute_mode) {
               target[i] += sys.coord_system[sys.coord_select][i] + sys.coord_offset[i];
@@ -354,7 +358,8 @@ uint8_t gc_execute_line(char *line)
         // Update axes defined only in block. Offsets current system to defined value. Does not update when
         // active coordinate system is selected, but is still active unless G92.1 disables it. 
         uint8_t i;
-        for (i=0; i<=3; i++) { // Axes indices are consistent, so loop may be used.
+    /// LETARTARE i<=3 -> i<N_AXIS
+        for (i=0; i<N_AXIS; i++) { // Axes indices are consistent, so loop may be used.
           if (bit_istrue(axis_words,bit(i)) ) {
             sys.coord_offset[i] = gc.position[i]-sys.coord_system[sys.coord_select][i]-target[i];
           }
@@ -389,7 +394,8 @@ uint8_t gc_execute_line(char *line)
     // absolute mode coordinate offsets or incremental mode offsets.
     // NOTE: Tool offsets may be appended to these conversions when/if this feature is added.
     uint8_t i;
-    for (i=0; i<=3; i++) { // Axes indices are consistent, so loop may be used to save flash space.
+  /// LETARTARE i<=3 -> i<N_AXIS
+    for (i=0; i<N_AXIS; i++) { // Axes indices are consistent, so loop may be used to save flash space.
       if ( bit_istrue(axis_words,bit(i)) ) {
         if (!absolute_override) { // Do not update target in absolute override mode
           if (gc.absolute_mode) {

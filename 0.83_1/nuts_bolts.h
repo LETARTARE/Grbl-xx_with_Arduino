@@ -29,13 +29,18 @@
 
 #define false 0
 #define true 1
-
+/// LETARTARE 17-04-2014
+#define N_AXIS 4
+/// <--
 #define X_AXIS 0
 #define Y_AXIS 1
 #define Z_AXIS 2
 #define A_AXIS 3
 
 #define MM_PER_INCH (25.4)
+/// LETARTARE 17-04-2014
+#define INCH_PER_MM (0.0393701)
+/// <--- 
 
 // Useful macros
 #define clear_vector(a) memset(a, 0, sizeof(a))
@@ -61,7 +66,9 @@
 #define EXEC_CYCLE_STOP     bit(2) // bitmask 00000100
 #define EXEC_FEED_HOLD      bit(3) // bitmask 00001000
 #define EXEC_RESET          bit(4) // bitmask 00010000
-// #define                  bit(5) // bitmask 00100000
+/// LETARTARE  17/04/2014
+#define EXEC_ALARM          bit(5) // bitmask 00100000
+/// <---
 // #define                  bit(6) // bitmask 01000000
 // #define                  bit(7) // bitmask 10000000
 
@@ -70,16 +77,16 @@ typedef struct {
   uint8_t abort;                 // System abort flag. Forces exit back to main loop for reset.
   uint8_t feed_hold;             // Feed hold flag. Held true during feed hold. Released when ready to resume.
   uint8_t auto_start;            // Planner auto-start flag. Toggled off during feed hold. Defaulted by settings.
-
-  int32_t position[4];           // Real-time machine (aka home) position vector in steps.
+/// LETARTARE
+  int32_t position[N_AXIS];           // Real-time machine (aka home) position vector in steps.
                                  // NOTE: This may need to be a volatile variable, if problems arise.
 
   uint8_t coord_select;          // Active work coordinate system number. Default: 0=G54.
-/// by LETARTARE 3-> 4
-  double coord_system[N_COORDINATE_SYSTEM][4]; // Work coordinate systems (G54+). Stores offset from
-  															 // absolute machine position in mm.
+/// by LETARTARE 3-> N_AXIS
+  double coord_system[N_COORDINATE_SYSTEM][N_AXIS]; // Work coordinate systems (G54+). Stores offset from
+                                                    // absolute machine position in mm.
                                  // Rows: Work system number (0=G54,1=G55,...5=G59), Columns: XYZ Offsets
-  double coord_offset[4];        // Retains the G92 coordinate offset (work coordinates) relative to
+  double coord_offset[N_AXIS];   // Retains the G92 coordinate offset (work coordinates) relative to
                                  // machine zero in mm.
 /// <-
 
@@ -97,6 +104,7 @@ int read_double(char *line, uint8_t *char_counter, double *double_ptr);
 void delay_ms(uint16_t ms);
 
 // Delays variable-defined microseconds. Compiler compatibility fix for _delay_us().
-void delay_us(uint16_t us);
+/// LETARTARE
+void delay_us(uint32_t us);
 
 #endif
