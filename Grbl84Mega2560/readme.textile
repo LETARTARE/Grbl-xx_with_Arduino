@@ -1,0 +1,26 @@
+//------------------------------------------------------------------------------
+This version 0.84 is an adaptation of "Mega2560-grbl-0.81" work with Arduino-xxx
+
+LETARTARE   19-04-2014 (french date)
+0.84 :
+
+The appointed axis C (about Z) is modified in A (around X)
+by infobarquée and icare -> french forum "http://forum.arduino.cc"
+
+Modified files:
+- gcode.cpp
+- limits.cpp
+- main.cpp
+- nuts_bolts.h   +  N_AXIS
+- nuts_bolts.cpp
+- planner.cpp
+- protocol.cpp
+- settings.cpp
+- stepper.cpp
+//------------------------------------------------------------------------------
+
+
+
+
+
+
