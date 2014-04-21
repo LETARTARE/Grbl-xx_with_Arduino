@@ -34,8 +34,9 @@ Example for Grbl-0.9d for Uno :
 
 3- compile and upload the Uno card
 
-VERY IMPORTANT: Do not put in "libraries" one version of "GrblxxBoard"
-
+************************** VERY IMPORTANT***************************
+you have to put in the directory "libraries" only ONE "GrblxxBoard".
+********************************************************************
 ================================================================================
 
 For any problem use "issues"
