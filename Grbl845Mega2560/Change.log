@@ -1,0 +1,195 @@
+Change.log
+
+//------------------------------------------------------------------------------
+<<== 0.81 recovered on the internet : version 'GrblElite-0.81' for MEGA2560
+Sept. 23, 2013
+
+This code is a copy of an old website disappeared Sept. 19, 2013
+https://github.com/EliteEng/grbl who recently reappeared in but with a copy of Grbl-8c
+which only manage three axes. These two versions are different.
+I just corrected the errors array dimensions.
+
+This Fork is an updated grbl v0.81 for the Arduino Mega2560.
+
+==>> 0.81
+//------------------------------------------------------------------------------
+<<== 0.81  March 31, 2014
+
+we create a library to work with Arduino-105x
+
+==>> 0.82
+//------------------------------------------------------------------------------
+<<== 0.82  Apr 02, 2014
+
+- Are published in another repository "Grbl_with_Arduino"
+
+Apr 16, 2014
+- Correcting various errors found ...
+
+Apr 17, 2014
+- add choice of active level 0 or 1 for Spindle Enable, Spindle Dir, Coolant, Mist
+
+==>> 0.83
+//------------------------------------------------------------------------------
+<<== 0.83  Apr 19, 2014
+
+The appointed axis C (about Z) is modified in A (around X)
+by infobarquée and icare ? french forum “http://forum.arduino.cc”
+
+Modified files:
+- gcode.cpp
+- limits.cpp
+- main.cpp
+- nuts_bolts.h + N_AXIS
+- nuts_bolts.cpp
+- planner.cpp
+- protocol.cpp
+- settings.cpp
+- stepper.cpp
+
+==>> 0.84
+//------------------------------------------------------------------------------
+<<== 0.84   Apr 20, 2014
+
+- Add file "0.8c:pin.map.h"
+- We translate into "pin_map.h" all "# define" the beginning of "config.h"
+- Small adjustments ...
+
+==>> 0.841
+//------------------------------------------------------------------------------
+<<== 0.841    Apr 21, 2014
+
+- Added "0.8c: defaults.h"
+- Adds "nuts_bolts.h" from "# include" defaults.h "(only use in 0.8c)
+-> Compile reports no problems
+
+- You must use the pre-defined references machine example: DEFAULTS_GENERIC
+     and add in "config.h"
+- Add in "defaults.h" configuration
+        #ifdef DEFAULTS_0.84x
+        ... // That retrieves the "# define" from "settings.cpp" in which they
+            // are put in notes
+        #endif
+   and "config.h"
+        #define DEFAULTS_0.84x
+-> Compile reports no problems
+
+     - "Nut_bolts.*" and "settings.cpp" use the definitions of the machine
+
+ - change multiple files: 4 -> N_AXIS
+  - In "limits.cpp"
+     1 - forgetting the axis A + a_axis
+         "double ds = step_event_count/sqrt(x_axis + y_axis + z_axis + a_axis);"
+     2 - error counter_x -> counter_a
+-> Compile reports no problems
+
+  - Adding in gcode.cpp
+     - In switch (letter)
+        /// 842
+        "case 'G': case 'M': case 'N': break; // Ignore command statements and line numbers"
+        /// <-
+        /// LETARTARE 'C' -> 'A' and 842 : default
+        case 'A': target[A_AXIS] = to_millimeters(value); bit_true(axis_words,bit(A_AXIS)); break;
+        default: FAIL(STATUS_UNSUPPORTED_STATEMENT);
+        // <-
+   - Groups and the structure declaration transferring the "# define" in the
+      "gcode.h"
+
+-> Compile reports no problems
+
+  - Add two files replaces writing output "0.8c:report.*"  must be put in
+    comments of numerous lines because fields are not defined then we must look
+    at what it replaces to use
+     - Not use actually
+
+-> Compile reports no problems
+
+==> 0.842
+//------------------------------------------------------------------------------
+<<== 0.842    Apr 22, 2014
+
+Modified files:
+
+ - config.h
+ - defaults.h
+    - we put in comment, other configurations
+    - add axis A rotary
+        #define DEFAULT_A_STEPS_PER_DEGREE (50*MICROSTEPS) // 1 µstep = 0,01 °
+
+ - gcode.cpp
+    - Formatting "gcode.cpp"
+    - Adding "static float to_degrees (double value)"  WRITING  !!
+    - into  "switch(letter)"
+        "case 'G': case 'M': case 'N': break; // Ignore command statements and line numbers"
+    - new code to simplify
+        "uint8_t isclockwise =  gc.motion_mode == MOTION_MODE_CW_ARC;"
+        /*   old code
+          uint8_t isclockwise = false;
+          if (gc.motion_mode == MOTION_MODE_CW_ARC) {
+            isclockwise = true;
+        */
+
+ - pin_map.h
+    - put at the beginning of the file definitions for MEGA2560
+
+ - setting.cpp
+    - axis A -> rotative table : add
+        - "double steps_per_degree ;"
+        - "settings.steps_per_degree = DEFAULT_A_STEPS_PER_DEGREE;"
+
+ - settings.h
+    - axis A -> rotative table : add
+        "double steps_per_degree ;"
+
+-> Compile reports no problems
+
+------------------------
+Apr 23, 2014
+
+Modified files:
+
+ - "default.h"
+    - machine definitions : steps motor, pitch screw, microsteps, worm gear ratio
+
+-> Compile reports no problems
+
+Apr 25, 2014
+
+ - preparation comments for the U axis (parallel to X) ...
+ - "planner.h:32"  :
+	"int32_t  step_event_count;"  -> "uint32_t  step_event_count;"
+ - "settings.c"
+	GRBL_VERSION "0.843" ->  GRBL_VERSION "0.843 -> 4 axes"
+
+-> Compile reports no problems
+
+Modified files :
+    - Change.log, settings.h, protocol.cpp, settings.cpp, gcode.cpp, report.cpp,
+     planner.cpp, nuts_bolts.h, main.cpp, limits.cpp, gcode.h, defaults.h,
+     pin_map.h, config.h, readMe.textile
+
+==>> 0.843
+//------------------------------------------------------------------------------
+<<== 0.843    Apr 22, 2014
+
+	- axis T = U (linear) or A (rotary)
+
+Modified files:
+	- defaults.h
+
+==>> 0.844
+//------------------------------------------------------------------------------
+<<== 0.844    Apr 26, 2014
+
+	- The fourth axis T is chosen in rotary axes 'A', 'B', 'C'
+	  or choose from linear axes 'U', 'V', 'W' : T in ['A', 'B', 'C', 'U', 'V', 'W'}
+
+	- "settings.h"
+		sets the text of GRBL_VERSION depending on the version and axes used
+
+Modified files:
+	- defaults.h, settings.h, settings.c, protocol.c, gcode.c
+
+
+==>> 0.845
+//------------------------------------------------------------------------------
