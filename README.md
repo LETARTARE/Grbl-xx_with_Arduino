@@ -34,8 +34,11 @@ B3- Grbl844Mega2560 : grbl-0.844 for Mega2560 57600 bauds  4 axes  X, Y, Z, T
                     - use GrblController-3.6) : https://github.com/zapmaker/GrblHoming
 
 B4- Grbl845Mega2560 : grbl-0.845 for Mega2560 57600 bauds  4 axes  X, Y, Z, T
+                      
                       with axis T in [A, B, C, U, V, W]
+                      
                       use GrblController-3.6) : https://github.com/zapmaker/GrblHoming
+                      
 ================================================================================
 
 You simply copy the "GrblxxBoard" directory in "Arduino-xxx/libraries"
