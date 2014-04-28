@@ -2,7 +2,7 @@
 
 Grbl_with_Arduino
 
-This directory contains the last versions  April 19, 2014
+This directory contains the last versions  April 28, 2014
 
 ================================================================================
 
@@ -27,6 +27,10 @@ B1- Grbl83Mega2560  : grbl-0.83 for Mega2560 57600 bauds  4 axes  X, Y, Z, C
                      low (configurable in "config.h")
                      
 B2- Grbl84Mega2560  : grbl-0.84 for Mega2560 57600 bauds  4 axes  X, Y, Z, A
+
+B3- Grbl844Mega2560 : grbl-0.844 for Mega2560 57600 bauds  4 axes  X, Y, Z, T
+                      with axis T in [A, C] 
+                      use GrblController-3.6) : https://github.com/zapmaker/GrblHoming
 
 ================================================================================
 
