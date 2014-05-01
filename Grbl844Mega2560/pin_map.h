@@ -101,15 +101,13 @@
 // for active high enable.
 #define SPINDLE_ENABLE_ACTIVE  0
 ///<---
-  #define SPINDLE_DIRECTION_DDR   DDRE
-  #define SPINDLE_DIRECTION_PORT  PORTE
-// 0.9d
-//  #define SPINDLE_DIRECTION_BIT   3 // MEGA2560 Digital Pin 5
+  #define SPINDLE_DIRECTION_DDR   DDRC
+  #define SPINDLE_DIRECTION_PORT  PORTC
 #define SPINDLE_DIRECTION_BIT 1  //  MEGA2560 Digital Pin 36
 ///---> LETARTARE 16/04/2014
 // SPINDLE_DIRECTION_ACTIVE: Set to 0 for active low spindle direction or 1
 // for active high enable.
-#define SPINDLE_DIRECTION_ACTIVE  1
+#define SPINDLE_DIRECTION_ACTIVE  0
 ///<---
 
 // Define flood and mist coolant enable output pins.

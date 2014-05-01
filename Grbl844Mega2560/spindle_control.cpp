@@ -51,7 +51,7 @@ void spindle_stop()
     SPINDLE_ENABLE_PORT |= (1<<SPINDLE_ENABLE_BIT);
 #endif
 
-#if SPINDLE_DIRECTION_ACTIVE == 1
+#if SPINDLE_DIRECTION_ACTIVE == 0
         // Set pin to high to run.
     SPINDLE_DIRECTION_PORT |= (1<<SPINDLE_DIRECTION_BIT);
 #else
