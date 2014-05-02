@@ -64,6 +64,10 @@
 #define bit_istrue(x,mask) ((x & mask) != 0)
 #define bit_isfalse(x,mask) ((x & mask) == 0)
 
+// set bit
+#define bit_1 (port, n ) (port |= (1 << n) )
+#define bit_0 (port, n ) (port &= ~(1 << n) )
+
 // Define system executor bit map. Used internally by runtime protocol as runtime command flags,
 // which notifies the main program to execute the specified runtime command asynchronously.
 // NOTE: The system executor uses an unsigned 8-bit volatile variable (8 flag limit.) The default

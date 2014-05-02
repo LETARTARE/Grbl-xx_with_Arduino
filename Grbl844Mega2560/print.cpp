@@ -20,7 +20,7 @@
 */
 
 /* This code was initially inspired by the wiring_serial module by David A. Mellis which
-   used to be a part of the Arduino project. */ 
+   used to be a part of the Arduino project. */
 
 
 #include <math.h>
@@ -43,20 +43,20 @@ void printPgmString(const char *s)
 }
 
 // void printIntegerInBase(unsigned long n, unsigned long base)
-// { 
-// 	unsigned char buf[8 * sizeof(long)]; // Assumes 8-bit chars. 
+// {
+// 	unsigned char buf[8 * sizeof(long)]; // Assumes 8-bit chars.
 // 	unsigned long i = 0;
-// 
+//
 // 	if (n == 0) {
 // 		serial_write('0');
 // 		return;
-// 	} 
-// 
+// 	}
+//
 // 	while (n > 0) {
 // 		buf[i++] = n % base;
 // 		n /= base;
 // 	}
-// 
+//
 // 	for (; i > 0; i--)
 // 		serial_write(buf[i - 1] < 10 ?
 // 			'0' + buf[i - 1] :
@@ -64,7 +64,7 @@ void printPgmString(const char *s)
 // }
 
 void print_uint8_base2(uint8_t n)
-{ 
+{
 	unsigned char buf[8];
 	uint8_t i = 0;
 
@@ -78,20 +78,20 @@ void print_uint8_base2(uint8_t n)
 }
 
 static void print_uint32_base10(unsigned long n)
-{ 
-  unsigned char buf[32]; 
+{
+  unsigned char buf[32];
   uint8_t i = 0;
-  
+
   if (n == 0) {
     serial_write('0');
     return;
-  } 
-  
+  }
+
   while (n > 0) {
     buf[i++] = n % 10;
     n /= 10;
   }
-  
+
   for (; i > 0; i--)
     serial_write('0' + buf[i - 1]);
 }
@@ -104,24 +104,24 @@ void printInteger(long n)
   }
   print_uint32_base10(n);
 }
-
-void printFloat(double n)
+/// 844 double -> float
+void printFloat(float n)
 {
   if (n < 0) {
     serial_write('-');
     n = -n;
   }
   n += 0.5/DECIMAL_MULTIPLIER; // Add rounding factor
- 
+
   long integer_part;
   integer_part = (int)n;
   print_uint32_base10(integer_part);
-  
+
   serial_write('.');
-  
+
   n -= integer_part;
-  int decimals = DECIMAL_PLACES;  
-  uint8_t decimal_part;  
+  int decimals = DECIMAL_PLACES;
+  uint8_t decimal_part;
   while(decimals-- > 0) {
     n *= 10;
     decimal_part = (int) n;

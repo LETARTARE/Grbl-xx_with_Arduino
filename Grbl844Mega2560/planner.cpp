@@ -367,7 +367,7 @@ void plan_buffer_line(double x, double y, double z, double t, double feed_rate, 
 #if (AXIS_T_TYPE == LINEAR)
   target[T_AXIS] = lround(t*settings.steps_per_mm[T_AXIS]);
 #else
- target[T_AXIS] = lround(t*settings.steps_per_degree[T_AXIS]);
+ target[T_AXIS] = lround(t*settings.steps_per_degree); //[T_AXIS]);
 #endif
 
   // Compute direction bits for this block
@@ -399,7 +399,7 @@ void plan_buffer_line(double x, double y, double z, double t, double feed_rate, 
 #if (AXIS_T_TYPE == LINEAR)
   delta_mm[T_AXIS] = (target[T_AXIS]-pl.position[T_AXIS])/settings.steps_per_mm[T_AXIS];
 #else
-  delta_mm[T_AXIS] = (target[T_AXIS]-pl.position[T_AXIS])/settings.steps_per_degree[T_AXIS];
+  delta_mm[T_AXIS] = (target[T_AXIS]-pl.position[T_AXIS])/settings.steps_per_degree/*[T_AXIS]*/;
 #endif
 
   block->millimeters = sqrt(delta_mm[X_AXIS]*delta_mm[X_AXIS] + delta_mm[Y_AXIS]*delta_mm[Y_AXIS] +

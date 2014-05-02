@@ -39,51 +39,27 @@
 #define SETTINGS_VERSION 5
 
 // Current global settings (persisted in EEPROM from byte 1 onwards)
+/// 844 : double -> float
 typedef struct {
-/// 843 : 4 -> N_AXIS,  X, Y, Z, T = U xor A
-  double steps_per_mm[N_AXIS];  // linear : X, Y, Z, U
 /// 844
-  double steps_per_degree[N_AXIS];  // rotary : none, none, none, A
-  uint8_t microsteps;
-  uint8_t pulse_microseconds;
-  double default_feed_rate;
-  double default_seek_rate;
-  uint8_t invert_mask_stepdir;
-  uint8_t invert_mask_limit;
-  double mm_per_arc_segment;
-  double acceleration;
-  double junction_deviation;
-  uint8_t spindle_pwm;
-  uint32_t default_spindle;
-  double max_spindle;
-} settings_t;
-extern settings_t settings;
 
-/*  version 0.8c
-/ Global persistent settings (Stored from byte EEPROM_ADDR_GLOBAL onwards)
-typedef struct {
-  float steps_per_mm[3];
+  /// 843 : 4 -> N_AXIS,  X, Y, Z, T = U xor A
+  float steps_per_mm[N_AXIS];  // linear : X, Y, Z, U
+  float steps_per_degree;//[N_AXIS];  // rotary : none, none, none, A
   uint8_t microsteps;
   uint8_t pulse_microseconds;
   float default_feed_rate;
   float default_seek_rate;
-*  uint8_t invert_mask;
+  uint8_t invert_mask_stepdir;
+  uint8_t invert_mask_limit;
   float mm_per_arc_segment;
   float acceleration;
   float junction_deviation;
-*  uint8_t flags;  // Contains default boolean settings
-*  uint8_t homing_dir_mask;
-*  float homing_feed_rate;
-* float homing_seek_rate;
-*  uint16_t homing_debounce_delay;
-*  float homing_pulloff;
-*  uint8_t stepper_idle_lock_time; // If max value 255, steppers do not disable.
-*  uint8_t decimal_places;
-*  uint8_t n_arc_correction;
-//  uint8_t status_report_mask; // Mask to indicate desired report data.
+  uint8_t spindle_pwm;
+  uint32_t default_spindle;
+  float max_spindle;
 } settings_t;
 extern settings_t settings;
-*/
 
 // Initialize the configuration subsystem (load settings from EEPROM)
 void settings_init();
@@ -95,6 +71,6 @@ void settings_dump();
 uint8_t settings_execute_line(char *line);
 
 // A helper method to set new settings from command line
-void settings_store_setting(int parameter, double value);
+void settings_store_setting(int parameter, float value);
 
 #endif

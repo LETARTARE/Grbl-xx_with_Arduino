@@ -30,30 +30,40 @@
 #include "stepper.h"
 #include "spindle_control.h"
 #include "coolant_control.h"
+/// 844
+#include "defaults.h"
 
 settings_t settings;
 
 // Version 1 outdated settings record
+/// 844 double -> float
 typedef struct {
 //// 843 : 4 -> N_AXIS
-  double steps_per_mm[N_AXIS];
+  float steps_per_mm[N_AXIS];
+  float steps_per_degree; //[N_AXIS];  // rotary : none, none, none, A
   uint8_t microsteps;
   uint8_t pulse_microseconds;
-  double default_feed_rate;
-  double default_seek_rate;
+  float default_feed_rate;
+  float default_seek_rate;
   uint8_t invert_mask;
-  double mm_per_arc_segment;
+  float mm_per_arc_segment;
 } settings_v1_t;
 
 void settings_reset() {
   settings.steps_per_mm[X_AXIS] = DEFAULT_X_STEPS_PER_MM;
   settings.steps_per_mm[Y_AXIS] = DEFAULT_Y_STEPS_PER_MM;
   settings.steps_per_mm[Z_AXIS] = DEFAULT_Z_STEPS_PER_MM;
+  /// always !
+ // settings.steps_per_degree[0] = 0;
+//  settings.steps_per_degree[1] = 0;
+ // settings.steps_per_degree[2] = 0;
 /// 844 : axis T
 #if (AXIS_T_TYPE == LINEAR)
    settings.steps_per_mm[T_AXIS] = DEFAULT_T_STEPS_PER_MM;
+   settings.steps_per_degree/*[3]*/ = 0;
 #else
-   settings.steps_per_degree[T_AXIS] = DEFAULT_T_STEPS_PER_DEGREE;
+   settings.steps_per_mm[T_AXIS] = 0;
+   settings.steps_per_degree/*[3]*/ = DEFAULT_T_STEPS_PER_DEGREE;
 #endif
 
   settings.pulse_microseconds = DEFAULT_STEP_PULSE_MICROSECONDS;
@@ -88,13 +98,14 @@ void settings_dump() {
 
 /// 844 : axis T
 #if (AXIS_T_TYPE == LINEAR)
-  printPgmString(PSTR("$3 = "));
-  printFloat(settings.steps_per_mm[T_AXIS]);
-  printPgmString(PSTR(" (steps/mm u)\r\n"));
+   printPgmString(PSTR("$3 = "));
+   printFloat(settings.steps_per_mm[T_AXIS]);
+   printPgmString(PSTR(" (steps/mm u)\r\n"));
 #else
 // axis a
   printPgmString(PSTR("$3 = "));
-  printFloat(settings.steps_per_degree[T_AXIS]);
+ // printFloat(settings.steps_per_degree[T_AXIS]);
+   printFloat(settings.steps_per_degree);//[3]);
   printPgmString(PSTR(" (steps/deg. a)\r\n"));
 #endif
 
@@ -237,7 +248,7 @@ int read_settings() {
 }
 
 // A helper method to set settings from command line
-void settings_store_setting(int parameter, double value) {
+void settings_store_setting(int parameter, float value) {
   switch(parameter) {
     case 0: case 1: case 2:
         if (value <= 0.0) {
@@ -253,7 +264,7 @@ void settings_store_setting(int parameter, double value) {
           printPgmString(PSTR("Steps/deg. must be >= -360.0 and <= 360.0\r\n"));
           return;
         }
-        settings.steps_per_degree[parameter] = value;
+        settings.steps_per_degree/*[parameter]*/ = value;
 #else
 		if (value <= 0.0) {
           printPgmString(PSTR("Steps/mm must be > 0.0\r\n"));

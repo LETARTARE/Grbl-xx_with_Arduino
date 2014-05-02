@@ -72,7 +72,7 @@ static void homing_cycle(bool x_axis, bool y_axis, bool z_axis, bool t_axis, int
   if (t_axis)  {
 #if (AXIS_T_TYPE == ROTARY )
 ///  axis a
-	steps[T_AXIS] = lround(settings.steps_per_degree[T_AXIS]);
+	steps[T_AXIS] = lround(settings.steps_per_degree) ;//[T_AXIS]);
 #else
 	steps[T_AXIS] = lround(settings.steps_per_mm[T_AXIS]);
 #endif
