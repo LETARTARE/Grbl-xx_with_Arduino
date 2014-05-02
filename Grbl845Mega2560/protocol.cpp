@@ -106,7 +106,7 @@ void protocol_status_report()
 #if (AXIS_T_TYPE == LINEAR)
    printString(","); printFloat(print_position[T_AXIS]/(settings.steps_per_mm[T_AXIS]*MM_PER_INCH));
 #else
-   printString(","); printFloat(print_position[T_AXIS]/(settings.steps_per_degree[T_AXIS]));
+   printString(","); printFloat(print_position[T_AXIS]/(settings.steps_per_degree));
 #endif
 /// <--
    printString("],WPos:["); printFloat((print_position[X_AXIS]/settings.steps_per_mm[X_AXIS]-sys.coord_system[sys.coord_select][X_AXIS]-sys.coord_offset[X_AXIS])/MM_PER_INCH);
@@ -116,7 +116,7 @@ void protocol_status_report()
 #if (AXIS_T_TYPE == LINEAR)
    printString(","); printFloat((print_position[T_AXIS]/settings.steps_per_mm[T_AXIS]-sys.coord_system[sys.coord_select][T_AXIS]-sys.coord_offset[T_AXIS])/MM_PER_INCH);
 #else
-   printString(","); printFloat((print_position[T_AXIS]/settings.steps_per_degree[T_AXIS]-sys.coord_system[sys.coord_select][T_AXIS]-sys.coord_offset[T_AXIS]));
+   printString(","); printFloat((print_position[T_AXIS]/settings.steps_per_degree -sys.coord_system[sys.coord_select][T_AXIS]-sys.coord_offset[T_AXIS]));
 #endif
    printString("MPos:["); printFloat(print_position[X_AXIS]/(settings.steps_per_mm[X_AXIS]));
    printString(","); printFloat(print_position[Y_AXIS]/(settings.steps_per_mm[Y_AXIS]));
@@ -126,7 +126,7 @@ void protocol_status_report()
 #if (AXIS_T_TYPE == LINEAR)
    printFloat(print_position[T_AXIS]/(settings.steps_per_mm[T_AXIS]));
 #else
-   printFloat(print_position[T_AXIS]/(settings.steps_per_degree[T_AXIS]));
+   printFloat(print_position[T_AXIS]/(settings.steps_per_degree));
 #endif
 
    printString("],WPos:["); printFloat(print_position[X_AXIS]/settings.steps_per_mm[X_AXIS]-sys.coord_system[sys.coord_select][X_AXIS]-sys.coord_offset[X_AXIS]);
@@ -137,7 +137,7 @@ void protocol_status_report()
 #if (AXIS_T_TYPE == LINEAR)
    printFloat(print_position[T_AXIS]/settings.steps_per_mm[T_AXIS]-sys.coord_system[sys.coord_select][T_AXIS]-sys.coord_offset[T_AXIS]);
 #else
-   printFloat(print_position[T_AXIS]/settings.steps_per_degree[T_AXIS]-sys.coord_system[sys.coord_select][T_AXIS]-sys.coord_offset[T_AXIS]);
+   printFloat(print_position[T_AXIS]/settings.steps_per_degree-sys.coord_system[sys.coord_select][T_AXIS]-sys.coord_offset[T_AXIS]);
 #endif
  printString("]\r\n");
 }

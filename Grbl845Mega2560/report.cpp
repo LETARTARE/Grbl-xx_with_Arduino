@@ -154,7 +154,7 @@ void report_grbl_settings() {
 #if (AXIS_T_TYPE == LINEAR)
   printFloat(settings.steps_per_mm[T_AXIS]); printPgmString(PSTR(" (u, step/mm)\r\n$3="));
 #else
-  printFloat(settings.steps_per_degree[T_AXIS]); printPgmString(PSTR(" (u, step/degree)\r\n$3="));
+  printFloat(settings.steps_per_degree); printPgmString(PSTR(" (u, step/degree)\r\n$3="));
 #endif
 
 /// <--

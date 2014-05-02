@@ -64,7 +64,7 @@ void gc_set_current_position(int32_t x, int32_t y, int32_t z, int32_t t)
   gc.position[Z_AXIS] = z/settings.steps_per_mm[Z_AXIS];
 /// 845
 #if (AXIS_T_TYPE == ROTARY)
-  gc.position[T_AXIS] = t/settings.steps_per_degree[T_AXIS];
+  gc.position[T_AXIS] = t/settings.steps_per_degree;
 #else
   gc.position[T_AXIS] = t/settings.steps_per_mm[T_AXIS];
 #endif

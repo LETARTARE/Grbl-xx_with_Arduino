@@ -37,6 +37,8 @@ settings_t settings;
 typedef struct {
 //// 843 : 4 -> N_AXIS
   double steps_per_mm[N_AXIS];
+/// 845
+  double steps_per_degree;
   uint8_t microsteps;
   uint8_t pulse_microseconds;
   double default_feed_rate;
@@ -53,7 +55,7 @@ void settings_reset() {
 #if (AXIS_T_TYPE == LINEAR)
    settings.steps_per_mm[T_AXIS] = DEFAULT_T_STEPS_PER_MM;
 #else
-   settings.steps_per_degree[T_AXIS] = DEFAULT_T_STEPS_PER_DEGREE;
+   settings.steps_per_degree = DEFAULT_T_STEPS_PER_DEGREE;
 #endif
 
   settings.pulse_microseconds = DEFAULT_STEP_PULSE_MICROSECONDS;
@@ -86,7 +88,6 @@ void settings_dump() {
   printFloat(settings.steps_per_mm[Z_AXIS]);
   printPgmString(PSTR(" (steps/mm z)\r\n"));
 
-
 /// 845 : axis X, Y, Z, U, V, W
 /// axis U, V, W
 #if (AXIS_T_TYPE == LINEAR)
@@ -103,7 +104,7 @@ void settings_dump() {
 #else
 /// axis A, B, C
   printPgmString(PSTR("$3 = "));
-  printFloat(settings.steps_per_degree[T_AXIS]);
+  printFloat(settings.steps_per_degree);
 #if AXIS_T == AXIS_A
 	printPgmString(PSTR(" (steps/deg. a)\r\n"));
 #elif AXIS_T == AXIS_B
@@ -274,7 +275,7 @@ void settings_store_setting(int parameter, double value) {
     #if AXIS_T_TYPE == LINEAR
         settings.steps_per_mm[parameter] = value;
     #else
-		settings.steps_per_degree[parameter] = value;
+		settings.steps_per_degree = value;
     #endif
 
 		break;
