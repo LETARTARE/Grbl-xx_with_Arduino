@@ -45,7 +45,7 @@
 // However, this keeps the memory requirements lower since it doesn't have to call and hold two
 // plan_buffer_lines in memory. Grbl only has to retain the original line input variables during a
 // backlash segment(s).
-void mc_line(double x, double y, double z, double a, double feed_rate, uint8_t invert_feed_rate)
+void mc_line(double x, double y, double z, double t, double feed_rate, uint8_t invert_feed_rate)
 {
   // TODO: Backlash compensation may be installed here. Only need direction info to track when
   // to insert a backlash line motion(s) before the intended line motion. Requires its own
@@ -60,7 +60,7 @@ void mc_line(double x, double y, double z, double a, double feed_rate, uint8_t i
     protocol_execute_runtime(); // Check for any run-time commands
     if (sys.abort) { return; } // Bail, if system abort.
   } while ( plan_check_full_buffer() );
-  plan_buffer_line(x, y, z, a, feed_rate, invert_feed_rate);
+  plan_buffer_line(x, y, z, t, feed_rate, invert_feed_rate);
 
   // Auto-cycle start immediately after planner finishes. Enabled/disabled by grbl settings. During
   // a feed hold, auto-start is disabled momentarily until the cycle is resumed by the cycle-start

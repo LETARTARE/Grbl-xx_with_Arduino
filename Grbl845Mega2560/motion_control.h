@@ -4,7 +4,7 @@
 
   Copyright (c) 2009-2011 Simen Svale Skogsrud
   Copyright (c) 2011-2012 Sungeun K. Jeon
-  
+
   Grbl is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -28,15 +28,15 @@
 // Execute linear motion in absolute millimeter coordinates. Feed rate given in millimeters/second
 // unless invert_feed_rate is true. Then the feed_rate means that the motion should be completed in
 // (1 minute)/feed_rate time.
-void mc_line(double x, double y, double z, double a, double feed_rate, uint8_t invert_feed_rate);
+void mc_line(double x, double y, double z, double t, double feed_rate, uint8_t invert_feed_rate);
 
-// Execute an arc in offset mode format. position == current xyz, target == target xyz, 
+// Execute an arc in offset mode format. position == current xyz, target == target xyz,
 // offset == offset from current xyz, axis_XXX defines circle plane in tool space, axis_linear is
 // the direction of helical travel, radius == circle radius, isclockwise boolean. Used
 // for vector transformation direction.
 void mc_arc(double *position, double *target, double *offset, uint8_t axis_0, uint8_t axis_1,
   uint8_t axis_linear, double feed_rate, uint8_t invert_feed_rate, double radius, uint8_t isclockwise);
-  
+
 // Dwell for a specific number of seconds
 void mc_dwell(double seconds);
 

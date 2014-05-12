@@ -81,13 +81,13 @@ static float to_millimeters(double value)
 }
 /// ============================================================================
 /// 845
-#if (AXIS_T_TYPE == ROTARY && AXIS_T)
+//#if (AXIS_T_TYPE == ROTARY && AXIS_T)
 /// TODO : 842   WRITING ...  ????
-static float to_degrees(double value)
+double to_degrees(double value)
 {
 	return value;
 }
-#endif
+//#endif
 /// ============================================================================
 
 // Executes one line of 0-terminated G-Code. The line is assumed to contain only uppercase

@@ -96,4 +96,7 @@ void gc_set_current_position(int32_t x, int32_t y, int32_t z, int32_t a);
 // Clear g-code parser position
 void gc_clear_position();
 
+/// for rotary axes
+double to_degrees(double value) ;
+
 #endif
