@@ -1,6 +1,7 @@
 //------------------------------------------------------------------------------
 These versions 0.8xx are adaptation of "Mega2560-grbl-0.81" work with Arduino-xxx
 
+
 v0.845
 	- choice of fourth axis in the "defaults.h" file :
 		- linear 	: U or V or W
@@ -11,7 +12,7 @@ v0.845
 		Grbl 0.845 (X, Y, C, T)
 		"$" to dump current settings
 		----------------------------
-	- with "GrblController-3.6" after connection, paired with the fourth axis Grbl
+	- with "GrblController" after connection, paired with the fourth axis Grbl
 
 v0.844
 	- choice axis : A (rotary) or U (linear)

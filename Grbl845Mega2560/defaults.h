@@ -80,7 +80,7 @@
 
   ///  step_per_revolution = number of motor steps per revolution
   #define USER_STEP_PER_REVOLUTION  200
-  /// board TB6560 -> 2 Âµsteps
+  /// board TB6560 -> 2 µsteps
   #define USER_MICROSTEPS 2
   ///  pitch_screw = pitch of screw
   #define USER_PITCH_SCREW   4   // 4mm for all linear axes
@@ -91,7 +91,7 @@
 /// <==
 
 // Grbl generic default settings. Should work across different machines.
-  #define DEFAULT_X_STEPS_PER_MM (USER_STEP_MM*USER_MICROSTEPS) //  -> 1 Âµstep = 0.01 mm
+  #define DEFAULT_X_STEPS_PER_MM (USER_STEP_MM*USER_MICROSTEPS) //  -> 1 µstep = 0.01 mm
   #define DEFAULT_Y_STEPS_PER_MM (USER_STEP_MM*USER_MICROSTEPS)
   #define DEFAULT_Z_STEPS_PER_MM (USER_STEP_MM*USER_MICROSTEPS)
 /// =====> 845  :  T in  U, if A, B, C -> mm = degree
@@ -100,7 +100,7 @@
   // calculated value Grbl = ratio_table*step_per_revolution/360
   #define USER_TABLE   ((USER_RATIO_TABLE*USER_STEP_PER_REVOLUTION)/360.0)
   // STEPS_PER_DEGREE = (ratio_table*step_per_revolution/360)*MICROSTEPS)
-  // Âµstep/degree   1 Âµstep = 0,01 Â°
+  // µstep/degree   1 µstep = 0,01 °
   #define DEFAULT_T_STEPS_PER_DEGREE (USER_TABLE*USER_MICROSTEPS)
 /// <=====
 

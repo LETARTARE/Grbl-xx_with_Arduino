@@ -63,9 +63,10 @@ static void status_message(int status_code)
 		printPgmString(PSTR("Invalid command\r\n"));
 		break;
 /// 843 : verify limit axis A
-	  case STATUS_BAD_NUMBER_DEGREE:
-		printPgmString(PSTR("Bad deggree value [-360..360] \r\n"));
-		break;
+/// removing this absurd limit !
+	//  case STATUS_BAD_NUMBER_DEGREE:
+	//	printPgmString(PSTR("Bad deggree value [-360..360] \r\n"));
+	//	break;
 /// <--
       default:
 		printInteger(status_code);
@@ -97,26 +98,26 @@ void protocol_status_report()
 /// 843 : 4 -> N_AXIS
  int32_t print_position[N_AXIS];
  memcpy(print_position,sys.position,sizeof(sys.position));  ///print_position = sys.position
-#if REPORT_INCH_MODE
+ #if REPORT_INCH_MODE
    printString("MPos:["); printFloat(print_position[X_AXIS]/(settings.steps_per_mm[X_AXIS]*MM_PER_INCH));
    printString(","); printFloat(print_position[Y_AXIS]/(settings.steps_per_mm[Y_AXIS]*MM_PER_INCH));
    printString(","); printFloat(print_position[Z_AXIS]/(settings.steps_per_mm[Z_AXIS]*MM_PER_INCH));
 /// 844  : axis T
-   #if (AXIS_T_TYPE == LINEAR)
-		printString(","); printFloat(print_position[T_AXIS]/(settings.steps_per_mm[T_AXIS]*MM_PER_INCH));
-   #else
+#if (AXIS_T_TYPE == LINEAR)
+   printString(","); printFloat(print_position[T_AXIS]/(settings.steps_per_mm[T_AXIS]*MM_PER_INCH));
+#else
 		printString(","); printFloat(print_position[T_AXIS]/(settings.steps_per_degree));
-   #endif
+#endif
 /// <--
    printString("],WPos:["); printFloat((print_position[X_AXIS]/settings.steps_per_mm[X_AXIS]-sys.coord_system[sys.coord_select][X_AXIS]-sys.coord_offset[X_AXIS])/MM_PER_INCH);
    printString(","); printFloat((print_position[Y_AXIS]/settings.steps_per_mm[Y_AXIS]-sys.coord_system[sys.coord_select][Y_AXIS]-sys.coord_offset[Y_AXIS])/MM_PER_INCH);
    printString(","); printFloat((print_position[Z_AXIS]/settings.steps_per_mm[Z_AXIS]-sys.coord_system[sys.coord_select][Z_AXIS]-sys.coord_offset[Z_AXIS])/MM_PER_INCH);
 /// 844 : axis T
-	#if (AXIS_T_TYPE == LINEAR)
-		printString(","); printFloat((print_position[T_AXIS]/settings.steps_per_mm[T_AXIS]-sys.coord_system[sys.coord_select][T_AXIS]-sys.coord_offset[T_AXIS])/MM_PER_INCH);
-	#else
+#if (AXIS_T_TYPE == LINEAR)
+   printString(","); printFloat((print_position[T_AXIS]/settings.steps_per_mm[T_AXIS]-sys.coord_system[sys.coord_select][T_AXIS]-sys.coord_offset[T_AXIS])/MM_PER_INCH);
+#else
 		printString(","); printFloat((print_position[T_AXIS]/settings.steps_per_degree -sys.coord_system[sys.coord_select][T_AXIS]-sys.coord_offset[T_AXIS]));
-	#endif
+#endif
 #else
 /// mm
    printString("MPos:["); printFloat(print_position[X_AXIS]/(settings.steps_per_mm[X_AXIS]));
@@ -124,22 +125,22 @@ void protocol_status_report()
    printString(","); printFloat(print_position[Z_AXIS]/(settings.steps_per_mm[Z_AXIS]));
 /// 844 : axis T
    printString(",");
-	#if (AXIS_T_TYPE == LINEAR)
-		printFloat(print_position[T_AXIS]/(settings.steps_per_mm[T_AXIS]));
-	#else
+#if (AXIS_T_TYPE == LINEAR)
+   printFloat(print_position[T_AXIS]/(settings.steps_per_mm[T_AXIS]));
+#else
 		printFloat(print_position[T_AXIS]/(settings.steps_per_degree));
-	#endif
+#endif
    printString("],WPos:["); printFloat(print_position[X_AXIS]/settings.steps_per_mm[X_AXIS]-sys.coord_system[sys.coord_select][X_AXIS]-sys.coord_offset[X_AXIS]);
    printString(","); printFloat(print_position[Y_AXIS]/settings.steps_per_mm[Y_AXIS]-sys.coord_system[sys.coord_select][Y_AXIS]-sys.coord_offset[Y_AXIS]);
    printString(","); printFloat(print_position[Z_AXIS]/settings.steps_per_mm[Z_AXIS]-sys.coord_system[sys.coord_select][Z_AXIS]-sys.coord_offset[Z_AXIS]);
    printString(",");
 /// 844 : axis T
-	#if (AXIS_T_TYPE == LINEAR)
-		printFloat(print_position[T_AXIS]/settings.steps_per_mm[T_AXIS]-sys.coord_system[sys.coord_select][T_AXIS]-sys.coord_offset[T_AXIS]);
-	#else
+#if (AXIS_T_TYPE == LINEAR)
+   printFloat(print_position[T_AXIS]/settings.steps_per_mm[T_AXIS]-sys.coord_system[sys.coord_select][T_AXIS]-sys.coord_offset[T_AXIS]);
+#else
 		printFloat(print_position[T_AXIS]/settings.steps_per_degree-sys.coord_system[sys.coord_select][T_AXIS]-sys.coord_offset[T_AXIS]);
-	#endif
-	printString("]\r\n");
+#endif
+ printString("]\r\n");
 #endif
 }
 

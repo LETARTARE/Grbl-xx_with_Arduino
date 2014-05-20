@@ -374,12 +374,13 @@ uint8_t gc_execute_line(char *line)
       case 'C':
     #endif
     #if (AXIS_T == AXIS_A|| AXIS_T == AXIS_B || AXIS_T == AXIS_C)
+/* removing this absurd limit  !
 	/// 843 : axis A check values into [-360.0..360.0]
 		if (value < -360.0 || value > 360.0) {
             FAIL(STATUS_BAD_NUMBER_DEGREE)
         }
+*/
         target[T_AXIS] = to_degrees(value);
-       // target[T_AXIS] = to_millimeters(value);
         bit_true(axis_words,bit(T_AXIS));
         break;
     #endif
