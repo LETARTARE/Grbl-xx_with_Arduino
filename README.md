@@ -2,7 +2,7 @@
 
 Grbl_with_Arduino
 
-This directory contains the last versions  April 28, 2014
+This directory contains the last versions  May 27, 2014
 
 ================================================================================
 
@@ -21,6 +21,8 @@ A3- Grbl9dMega2560  : grbl-0.9d for Mega2560 115200 bauds  3 axes
 A4- Grbl9dUno       : grbl-0.9d for Uno328p 115200 bauds  3 axss
 
 A5- Grbl9eMega2560  : grbl-0.9e for Mega2560 115200 bauds  3 axes
+
+A6- Grbl9eUno       : grbl-0.9e for UNo328p 115200 bauds  3 axes
 
 
 ================================================================================
