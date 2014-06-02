@@ -22,7 +22,7 @@ A4- Grbl9dUno       : grbl-0.9d for Uno328p 115200 bauds  3 axss
 
 A5- Grbl9eMega2560  : grbl-0.9e for Mega2560 115200 bauds  3 axes * update
 
-A6- Grbl9eUno       : grbl-0.9e for UNo328p 115200 bauds  3 axes
+A6- Grbl9eUno       : grbl-0.9e for UNo328p 115200 bauds  3 axes  * update
 
 
 ================================================================================
@@ -37,7 +37,7 @@ B4- Grbl845Mega2560 : grbl-0.845 for Mega2560 57600 bauds  4 axes  X, Y, Z, T
                       use GrblController-3.6 :
                       https://github.com/zapmaker/GrblHoming
 
-B5- Grbl8c1Mega2560 : grbl-0.8c1 for Mega2560 57600 bauds  4 axes  X, Y, Z, T
+B5- Grbl8c1Mega2560 : grbl-0.8c1 for Mega2560 57600 bauds  4 axes  X, Y, Z, T * new
                       
                       with axis T in [A, B, C, U, V, W]
 		       
