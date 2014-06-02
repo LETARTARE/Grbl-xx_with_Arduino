@@ -2,7 +2,7 @@
   nuts_bolts.h - Header file for shared definitions, variables, and functions
   Part of Grbl
 
-  Copyright (c) 2011-2014 Sungeun K. Jeon  
+  Copyright (c) 2011-2014 Sungeun K. Jeon
   Copyright (c) 2009-2011 Simen Svale Skogsrud
 
   Grbl is free software: you can redistribute it and/or modify
@@ -43,15 +43,15 @@
 #define min(a,b) (((a) < (b)) ? (a) : (b))
 
 // Bit field and masking macros
-#define bit(n) (1 << n) 
+#define bit(n) (1 << n)
 #define bit_true(x,mask) (x |= mask)
 #define bit_false(x,mask) (x &= ~mask)
 #define bit_toggle(x,mask) (x ^= mask)
 #define bit_istrue(x,mask) ((x & mask) != 0)
 #define bit_isfalse(x,mask) ((x & mask) == 0)
 
-// Read a floating point value from a string. Line points to the input buffer, char_counter 
-// is the indexer pointing to the current character of the line, while float_ptr is 
+// Read a floating point value from a string. Line points to the input buffer, char_counter
+// is the indexer pointing to the current character of the line, while float_ptr is
 // a pointer to the result variable. Returns true when it succeeds
 uint8_t read_float(char *line, uint8_t *char_counter, float *float_ptr);
 
