@@ -2,7 +2,7 @@
 
 Grbl_with_Arduino
 
-This directory contains the last versions  June 2, 2014
+This directory contains the last versions  June 6, 2014
 
 ================================================================================
 
@@ -37,11 +37,22 @@ B4- Grbl845Mega2560 : grbl-0.845 for Mega2560 57600 bauds  4 axes  X, Y, Z, T
                       use GrblController-3.6 :
                       https://github.com/zapmaker/GrblHoming
 
-B5- Grbl8c1Mega2560 : grbl-0.8c1 for Mega2560 57600 bauds  4 axes  X, Y, Z, T * new
+B5- Grbl8c1Mega2560 : grbl-0.8c1 for Mega2560 57600 bauds  4 axes  X, Y, Z, T
                       
                       with axis T in [A, B, C, U, V, W]
+
+                      mapping Grbl845Mega2560
 		       
                       use GrblController-3.6.1-T1 :
+                      https://github.com/LETARTARE/GrblHoming/tree/Letartare
+
+B6- Grbl8c2Mega2560 : grbl-0.8c2 for Mega2560 57600 bauds  4 axes  X, Y, Z, T * new
+                      
+                      with axis T in [A, B, C, U, V, W]
+
+                      mapping Grbl8cMega2560 + fourth axis
+
+                      use GrblController-3.6.1-Tx :
                       https://github.com/LETARTARE/GrblHoming/tree/Letartare
 
                       

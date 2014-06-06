@@ -1,0 +1,83 @@
+///------------------------------------------------------------------------------
+These versions 0.8cxx are adaptations 4 axes of "Mega2560-grbl-0.8c" for 3 axes
+///-----------------------------------------------------------------------------
+
+==> This code is an EXPERIMENTAL code for 4 axes  with Mega2560 <==
+
+v0.8c2   June 06, 2014
+
+	- Creating a new pinout, different '0.8c1', which is derived from '0.8c Mega2560'
+		- #define PIN_MAP_ARDUINO_MEGA_2560_4   /// mapping 0.8c Mega2560 + T axis
+
+		- X_STEP_BIT  		Pin 24
+		- Y_STEP_BIT  		Pin 25
+		- Z_STEP_BIT  		Pin 26
+		- T_STEP_BIT   		Pin 23
+
+		- X_DIRECTION_BIT	Pin 27
+		- Y_DIRECTION_BIT   Pin 28
+		- Z_DIRECTION_BIT	Pin 29
+		- T_DIRECTION_BIT  	Pin 22
+
+	- Creating a configuration SANDER02
+
+	- More detailed definitions of the machine in 'default.h'
+
+	   Example 'DEFAULTS_SANDER02' uses a rotary axis driving a table SOBA150  :
+		///  step_per_revolution = number of motor steps per revolution
+		#define USER_STEP_PER_REVOLUTION  200
+		/// board TB6560 -> 2 µsteps
+		#define USER_MICROSTEPS 2
+		///  pitch_screw = pitch of screw
+		#define USER_PITCH_SCREW   4   // 4 mm for all linear axes
+		#define USER_STEP_MM  (USER_STEP_PER_REVOLUTION/USER_PITCH_SCREW)
+		///  ratio_table  =  the worm gear ratio
+		#define USER_RATIO_TABLE  90   // for rotary axis
+		// user values
+		// calculated value Grbl = ratio_table*step_per_revolution/360
+		#define USER_TABLE   ((USER_RATIO_TABLE*USER_STEP_PER_REVOLUTION)/360.0)
+		and
+		#define DEFAULT_X_STEPS_PER_MM (USER_STEP_MM*USER_MICROSTEPS)
+		#define DEFAULT_T_STEPS_PER_DEGREE (USER_TABLE*USER_MICROSTEPS)
+
+
+	- Possibility  always upload defaults parameters with a macro in 'config.h'
+		- '#define ALWAYS_DEFAULTS_SETTINGS  1   /// 0 normal'
+
+	- The modified files lines are marked '/// 8c2'
+
+//------------------------------------------------------------------------------
+
+v0.8c1	 May 15, 2014
+
+	- Choice of fourth axis in the "config.h" file :
+		- linear 	: U or V or W
+		- rotary 	: A or B or C
+
+	- Pinout in 'pin_map.h' for 'MEGA2560'
+		- X_STEP_BIT  		Pin 22
+		- Y_STEP_BIT  		Pin 24
+		- Z_STEP_BIT  		Pin 26
+		- T_STEP_BIT   		Pin 28
+
+		- X_DIRECTION_BIT	Pin 23
+		- Y_DIRECTION_BIT   Pin 25
+		- Z_DIRECTION_BIT	Pin 27
+		- T_DIRECTION_BIT  	Pin 29
+
+	- The text provided at initialization, where T in [A, B, C, U, V, W]
+		----------------------------
+		MEGA2560with 4 axes (X, Y, C, T)
+		Grbl 0.8c1
+		"$" to dump current settings
+		----------------------------
+
+	- Files are changed from '0.8c', changed lines are marked '/// 8c1'
+		- config_h, defaults.h, pin_map.h
+		- gcode.*, limits.c, motion_control.*, nuts_bolts.*, planner.*,
+		  protocol.h, report.*, stepper.c
+
+	- The tests were performed using "GrblController-3.6.1-T1" after connection,
+	  paired with the fourth axis Grbl
+
+//------------------------------------------------------------------------------
