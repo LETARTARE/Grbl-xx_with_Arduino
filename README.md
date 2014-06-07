@@ -2,7 +2,7 @@
 
 Grbl_with_Arduino
 
-This directory contains the last versions  June 6, 2014
+This directory contains the last versions  June 7, 2014
 
 ================================================================================
 
@@ -10,34 +10,25 @@ These are adaptations to build Grbl-xxx in Arduino-xxx (actually xxx=1.0.5 or 1.
 
 ================================================================================
 
-A- OFFICIAL VERSIONS updated from the site Grbl : 3 axes
+    A-  OFFICIAL VERSIONS 3 AXES    : updated from the site Grbl
 
-A1- Grbl8cUno       : grbl-0.8c for Uno328p 115200 bauds  3 axes
+1- Grbl8cUno       : grbl-0.8c for Uno328p 115200 bauds  3 axes
 
-A2- Grbl8cMega2560  : grbl-0.8c for Mega2560 115200 bauds  3 axes
+2- Grbl8cMega2560  : grbl-0.8c for Mega2560 115200 bauds  3 axes
 
-A3- Grbl9dMega2560  : grbl-0.9d for Mega2560 115200 bauds  3 axes
+3- Grbl9dMega2560  : grbl-0.9d for Mega2560 115200 bauds  3 axes
 
-A4- Grbl9dUno       : grbl-0.9d for Uno328p 115200 bauds  3 axss
+4- Grbl9dUno       : grbl-0.9d for Uno328p 115200 bauds  3 axss
 
-A5- Grbl9eMega2560  : grbl-0.9e for Mega2560 115200 bauds  3 axes * update
+5- Grbl9eMega2560  : grbl-0.9e for Mega2560 115200 bauds  3 axes * update
 
-A6- Grbl9eUno       : grbl-0.9e for UNo328p 115200 bauds  3 axes  * update
-
+6- Grbl9eUno       : grbl-0.9e for UNo328p 115200 bauds  3 axes  * update
 
 ================================================================================
 
-B- UNOFFICIAL VERSION from the old version 0.81 : 4 axes
+    B-  UNOFFICIAL VERSIONS 4 AXES     : from the official version 0.8c
 
-
-B4- Grbl845Mega2560 : grbl-0.845 for Mega2560 57600 bauds  4 axes  X, Y, Z, T
-                      
-                      with axis T in [A, B, C, U, V, W]
-                      
-                      use GrblController-3.6 :
-                      https://github.com/zapmaker/GrblHoming
-
-B5- Grbl8c1Mega2560 : grbl-0.8c1 for Mega2560 57600 bauds  4 axes  X, Y, Z, T
+1- Grbl8c1Mega2560 : grbl-0.8c1 for Mega2560 57600 bauds  4 axes  X, Y, Z, T
                       
                       with axis T in [A, B, C, U, V, W]
 
@@ -46,7 +37,7 @@ B5- Grbl8c1Mega2560 : grbl-0.8c1 for Mega2560 57600 bauds  4 axes  X, Y, Z, T
                       use GrblController-3.6.1-T1 :
                       https://github.com/LETARTARE/GrblHoming/tree/Letartare
 
-B6- Grbl8c2Mega2560 : grbl-0.8c2 for Mega2560 57600 bauds  4 axes  X, Y, Z, T * new
+2- Grbl8c2Mega2560 : grbl-0.8c2 for Mega2560 57600 bauds  4 axes  X, Y, Z, T * new
                       
                       with axis T in [A, B, C, U, V, W]
 
@@ -54,6 +45,19 @@ B6- Grbl8c2Mega2560 : grbl-0.8c2 for Mega2560 57600 bauds  4 axes  X, Y, Z, T * 
 
                       use GrblController-3.6.1-Tx :
                       https://github.com/LETARTARE/GrblHoming/tree/Letartare
+
+================================================================================
+
+    C- UNOFFICIAL VERSION 4 AXES   : from the old version 0.81
+
+
+1- Grbl845Mega2560 : grbl-0.845 for Mega2560 57600 bauds  4 axes  X, Y, Z, T
+
+                      with axis T in [A, B, C, U, V, W]
+
+                      use GrblController-3.6 :
+                      https://github.com/zapmaker/GrblHoming
+
 
                       
 ================================================================================
