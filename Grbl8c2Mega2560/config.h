@@ -37,6 +37,7 @@
 #define config_h
 
 // Default settings. Used when resetting EEPROM. Change to desired name in defaults.h
+// Do not use other configurations as 'DEFAULT_T_STEPS_PER_DEGREE' is not defined  !!!
 //#define DEFAULTS_GENERIC
 #define DEFAULTS_SANDER02
 
@@ -61,7 +62,7 @@
 // Default pin mappings. Grbl officially supports the Arduino Uno only. Other processor types
 // may exist from user-supplied templates or directly user-defined in pin_map.h
 //#define PIN_MAP_ARDUINO_UNO
-//#define PIN_MAP_ARDUINO_MEGA_2560     ///
+//#define PIN_MAP_ARDUINO_MEGA_2560   ///mapping 0.845 + T axis
 #define PIN_MAP_ARDUINO_MEGA_2560_4   /// mapping 0.8c + T axis
 
 // Define runtime command special characters. These characters are 'picked-off' directly from the

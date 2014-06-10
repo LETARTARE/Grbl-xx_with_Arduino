@@ -93,12 +93,10 @@ void settings_reset(bool reset_all) {
     settings.steps_per_mm[Y_AXIS] = DEFAULT_Y_STEPS_PER_MM;
     settings.steps_per_mm[Z_AXIS] = DEFAULT_Z_STEPS_PER_MM;
 /// 8c2
-#if (AXIS_T_TYPE == LINEAR)
-	settings.steps_per_mm[T_AXIS] = DEFAULT_T_STEPS_PER_MM;
-#elif (AXIS_T_TYPE == ROTARY)
-		settings.steps_per_mm[T_AXIS] = DEFAULT_T_STEPS_PER_DEGREE ;
+    settings.steps_per_mm[T_AXIS] = DEFAULT_T_STEPS_PER_MM;
+#if (AXIS_T_TYPE == ROTARY)
+    settings.steps_per_mm[T_AXIS] = DEFAULT_T_STEPS_PER_DEGREE ;
 #endif
-
     settings.pulse_microseconds = DEFAULT_STEP_PULSE_MICROSECONDS;
     settings.default_feed_rate = DEFAULT_FEEDRATE;
     settings.default_seek_rate = DEFAULT_RAPID_FEEDRATE;
