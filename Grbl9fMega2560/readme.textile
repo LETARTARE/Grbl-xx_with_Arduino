@@ -1,0 +1,25 @@
+//------------------------------------------------------------------------------
+Grbl9fMega2560 for Mega2560 115200 bauds  3 axis
+    it's an adapted version of grbl-0.9f for Arduino-xxx
+
+   
+
+   1- in 'gcode.cpp'
+   ==>  a change because C++ does not accept variable declarations in the 'switch'
+    
+    - line 651 : 'float x, y, h_x2_div_d, target_r, delta_r ;'
+    - line 671 : 'float x =' -> 'x ='
+    - line 622 : 'float y =' -> 'y ='
+    - line 730 : 'float h_x2_div_d =' -> 'h_x2_div_d ='
+    - line 780 : 'float target_r =' -> 'target_r ='
+    - line 730 : 'float delta_r =' -> 'delta_r ='
+
+   2- in 'nuts_bolts.h'
+   ==> redefinition of false
+    - line 25   : '#define false 0' ->  //#define false 0
+    - line 26   : '#define true 1'  ->  //#define true 1
+
+
+LETARTARE
+//------------------------------------------------------------------------------
+

@@ -2,7 +2,7 @@
 
 Grbl_with_Arduino
 
-This directory contains the last versions  June 7, 2014
+This directory contains the last versions  July 7, 2014
 
 ================================================================================
 
@@ -20,9 +20,15 @@ These are adaptations to build Grbl-xxx in Arduino-xxx (actually xxx=1.0.5 or 1.
 
 4- Grbl9dUno       : grbl-0.9d for Uno328p 115200 bauds  3 axss
 
-5- Grbl9eMega2560  : grbl-0.9e for Mega2560 115200 bauds  3 axes * update
+5- Grbl9eMega2560  : grbl-0.9e for Mega2560 115200 bauds  3 axes
 
-6- Grbl9eUno       : grbl-0.9e for UNo328p 115200 bauds  3 axes  * update
+6- Grbl9eUno       : grbl-0.9e for UNo328p 115200 bauds  3 axes
+
+   NEW  
+
+7- Grbl9fUno       : grbl-0.9f for UNo328p 115200 bauds  3 axes  * upload
+
+8- Grbl9fMega2560  : grbl-0.9f for Mega2560 115200 bauds  3 axes * upload
 
 ================================================================================
 
@@ -64,11 +70,11 @@ These are adaptations to build Grbl-xxx in Arduino-xxx (actually xxx=1.0.5 or 1.
 
 You simply copy the "GrblxxBoard" directory in "Arduino-xxx/libraries"
 
-Example for Grbl-0.9d for Uno :
+Example for Grbl-0.9f for Uno :
 
-1- copy "Grbl9dUno" in "Arduino-105/libraries",
+1- copy "Grbl9fUno" in "Arduino-105/libraries",
 
-2- load in "Arduino-105" "Examples/Grbl9dUno/Grbl9dUno.ino",
+2- load in "Arduino-105" "Examples/Grbl9fUno/Grbl9fUno.ino",
 
 3- compile and upload the Uno card
 
