@@ -2,7 +2,7 @@
 
 Grbl_with_Arduino
 
-This directory contains the last versions  July 7, 2014
+This directory contains the last versions  July 23, 2014
 
 ================================================================================
 
@@ -24,7 +24,7 @@ These are adaptations to build Grbl-xxx in Arduino-xxx (actually xxx=1.0.5 or 1.
 
 6- Grbl9eUno       : grbl-0.9e for UNo328p 115200 bauds  3 axes
 
-   NEW  
+   NEW  july 12, 2014
 
 7- Grbl9fUno       : grbl-0.9f for UNo328p 115200 bauds  3 axes  * upload
 

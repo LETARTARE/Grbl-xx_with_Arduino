@@ -647,8 +647,8 @@ uint8_t gc_execute_line(char *line)
     } else {
       // Check if feed rate is defined for the motion modes that require it.
       if (gc_block.values.f == 0.0) { FAIL(STATUS_GCODE_UNDEFINED_FEED_RATE); } // [Feed rate undefined]
-
-      float x, y, h_x2_div_d, target_r, delta_r ;
+/// LETARTARE
+      float x,y, h_x2_div_d, target_r, delta_r;
       switch (gc_block.modal.motion) {
         case MOTION_MODE_LINEAR:
           // [G1 Errors]: Feed rate undefined. Axis letter not configured or without real value.
@@ -667,7 +667,7 @@ uint8_t gc_execute_line(char *line)
           if (!axis_words) { FAIL(STATUS_GCODE_NO_AXIS_WORDS); } // [No axis words]
           if (!(axis_words & (bit(axis_0)|bit(axis_1)))) { FAIL(STATUS_GCODE_NO_AXIS_WORDS_IN_PLANE); } // [No axis words in plane]
 
-          // Calculate tfloat xhe change in position along each selected axis
+          // Calculate the change in position along each selected axis
           x = gc_block.values.xyz[axis_0]-gc_state.position[axis_0]; // Delta x between current position and target
           y = gc_block.values.xyz[axis_1]-gc_state.position[axis_1]; // Delta y between current position and target
 
