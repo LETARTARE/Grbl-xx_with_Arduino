@@ -2,7 +2,7 @@
 
 Grbl_with_Arduino
 
-This directory contains the last versions  July 23, 2014
+This directory contains the last versions  August 19, 2014  see B-
 
 ================================================================================
 
