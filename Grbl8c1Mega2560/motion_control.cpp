@@ -32,7 +32,8 @@
 #include <math.h>
 #include <stdlib.h>
 #include "settings.h"
-#include "config.h"
+//#include "config.h"
+#include "defaults.h"
 #include "gcode.h"
 #include "motion_control.h"
 #include "spindle_control.h"
@@ -195,7 +196,7 @@ void mc_arc(float *position, float *target, float *offset, uint8_t axis_0, uint8
     arc_target[axis_1] = center_axis1 + r_axis1;
     arc_target[axis_linear] += linear_per_segment;
 /// 8c1  -> 0 for T_AXIS  and  arc = true
-	mc_line(arc_target[X_AXIS], arc_target[Y_AXIS], arc_target[Z_AXIS], 0, feed_rate, invert_feed_rate, C_ARC);
+    mc_line(arc_target[X_AXIS], arc_target[Y_AXIS], arc_target[Z_AXIS], 0, feed_rate, invert_feed_rate, C_ARC);
 
     // Bail mid-circle on system abort. Runtime command check already performed by mc_line.
     if (sys.abort) { return; }

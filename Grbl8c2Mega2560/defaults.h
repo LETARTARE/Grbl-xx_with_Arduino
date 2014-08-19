@@ -55,7 +55,7 @@
 	#define AXIS_B   8
 	#define AXIS_C   9
 	// rotary axis
-	#define AXIS_T 	AXIS_A  /// ==> You must choose your rotary fourth axis  <==
+	#define AXIS_T 	AXIS_C  /// ==> You must choose your rotary fourth axis  <==
  #else
 	/// -> (X, Y, Z)
 	#error "The macro "AXIS_T" is not initialized"
@@ -84,7 +84,7 @@
   /// board TB6560 -> 2 µsteps
   #define USER_MICROSTEPS 2
   ///  pitch_screw = pitch of screw
-  #define USER_PITCH_SCREW   4   // 4mm for all linear axes
+  #define USER_PITCH_SCREW   4  // 4mm for all linear axes
   #define USER_STEP_MM  (USER_STEP_PER_REVOLUTION/USER_PITCH_SCREW)
   ///  ratio_table  =  the worm gear ratio
   #define USER_RATIO_TABLE  90   // for rotary axis

@@ -44,24 +44,24 @@
 #include "coolant_control.h"
 
 /// 8c1
-#include "config.h"	/// AXIS_T_TYPE
+#include "defaults.h"	/// AXIS_T
 //  the axes  -> GRBL_AXIS
 #if (AXIS_T_TYPE == LINEAR)
-	#if AXIS_T == AXIS_U
+	#if (AXIS_T == AXIS_U)
 		#define GRBL_AXIS  "(X, Y, Z, U)"
-	#elif AXIS_T ==	AXIS_V
+	#elif (AXIS_T ==	AXIS_V)
 		#define GRBL_AXIS "(X, Y, Z, V)"
-	#elif AXIS_T ==	AXIS_W
+	#elif (AXIS_T ==	AXIS_W)
 		#define GRBL_AXIS "(X, Y, Z, W)"
 	#else
 		#define GRBL_AXIS "(X, Y, Z)"
 	#endif
 #elif (AXIS_T_TYPE == ROTARY)
-	#if AXIS_T == AXIS_A
+	#if (AXIS_T == AXIS_A)
 		#define GRBL_AXIS "(X, Y, Z, A)"
-	#elif AXIS_T ==	AXIS_B
+	#elif (AXIS_T == AXIS_B)
 		#define GRBL_AXIS "(X, Y, Z, B)"
-	#elif AXIS_T ==	AXIS_C
+	#elif (AXIS_T == AXIS_C)
 		#define GRBL_AXIS "(X, Y, Z, C)"
 	#else
 		#define GRBL_AXIS "(X, Y, Z)"

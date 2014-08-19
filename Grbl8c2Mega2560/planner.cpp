@@ -35,7 +35,8 @@
 #include "nuts_bolts.h"
 #include "stepper.h"
 #include "settings.h"
-#include "config.h"
+//#include "config.h"
+#include "defaults.h"
 #include "protocol.h"
 /// 8c1
 #ifndef AXIS_T_TYPE

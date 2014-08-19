@@ -42,7 +42,7 @@
 #include "protocol.h"
 #include "report.h"
 /// 8c1
-#include "config.h"   /// AXIS_T_TYPE
+#include "defaults.h"   /// AXIS_T_TYPE
 
 #ifndef N_AXIS
 	#error

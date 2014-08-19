@@ -50,14 +50,14 @@
   #define LINEAR 0		//  0 -> linear T = U or V or W
   #define ROTARY 1		//  1 -> rotary T = A or B or C
 /// ====> You must choose on least one type, but not both  <====
- //#define AXIS_T_TYPE 	LINEAR  	//  0 -> linear
+// #define AXIS_T_TYPE 	LINEAR  	//  0 -> linear
   #define AXIS_T_TYPE 	ROTARY 		//  1 -> rotary
 
 // Default pin mappings. Grbl officially supports the Arduino Uno only. Other processor types
 // may exist from user-supplied templates or directly user-defined in pin_map.h
 //#define PIN_MAP_ARDUINO_UNO
 #define PIN_MAP_ARDUINO_MEGA_2560     ///
-//#define PIN_MAP_ARDUINO_MEGA_2560_8c2   /// mapping 0.8c + T axis
+//#define PIN_MAP_ARDUINO_MEGA_2560_4   /// mapping 0.8c + T axis
 
 // Define runtime command special characters. These characters are 'picked-off' directly from the
 // serial read data stream and are not passed to the grbl line execution parser. Select characters

@@ -43,7 +43,7 @@
 
 /// 8c1
 #include "gcode.h"   	/// to_degrees()
-#include "config.h"   /// AXIS_T_TYPE
+#include "defaults.h"   /// AXIS_T_TYPE
 
 #define MICROSECONDS_PER_ACCELERATION_TICK  (1000000/ACCELERATION_TICKS_PER_SECOND)
 

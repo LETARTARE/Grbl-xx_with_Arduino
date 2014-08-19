@@ -1,10 +1,18 @@
-///------------------------------------------------------------------------------
+﻿///------------------------------------------------------------------------------
 These versions 0.8cxx are adaptations 4 axes of "Mega2560-grbl-0.8c" for 3 axes
 ///-----------------------------------------------------------------------------
 
 ==> This code is an EXPERIMENTAL code for 4 axes  with Mega2560 <==
 
-v0.8c2   June 06, 2014
+v0.8c1	August 19, 2014   : bug fixed for using V, W, B, C
+
+	====>  ACTUALLY for X, Y, Z, C
+
+	- Choice the type of fourth axis in the "config.h" file :
+		- linear 	: U or V or W
+		- rotary 	: A or B or C
+	- Choice the fourth axis in the "defaults.h" file :
+		- AXIS_T = AXIS_U or V or W or A or B or C
 
 	- Creating a new pinout, different '0.8c1', which is derived from '0.8c Mega2560'
 		- #define PIN_MAP_ARDUINO_MEGA_2560_4   /// mapping 0.8c Mega2560 + T axis
@@ -48,11 +56,13 @@ v0.8c2   June 06, 2014
 
 //------------------------------------------------------------------------------
 
-v0.8c1	 May 15, 2014
+v0.8c1	August 19, 2014   : bug fixed for use V, W, B, C
 
-	- Choice of fourth axis in the "config.h" file :
+	- Choice the type of fourth axis in the "config.h" file :
 		- linear 	: U or V or W
 		- rotary 	: A or B or C
+	- Choice the fourth axis in the "defaults.h" file :
+		- AXIS_T = AXIS_U or V or W or A or B or C
 
 	- Pinout in 'pin_map.h' for 'MEGA2560'
 		- X_STEP_BIT  		Pin 22

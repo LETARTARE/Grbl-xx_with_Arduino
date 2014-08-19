@@ -32,7 +32,7 @@
 
 #include "gcode.h"
 #include <string.h>
-#include "nuts_bolts.h"
+#include "nuts_bolts.h"    /// N_AXIS
 #include <math.h>
 #include "settings.h"
 #include "motion_control.h"
@@ -42,7 +42,7 @@
 #include "protocol.h"
 #include "report.h"
 /// 8c1
-#include "config.h"   /// AXIS_T_TYPE
+#include "defaults.h"   /// AXIS_T_TYPE
 
 #ifndef N_AXIS
 	#error
@@ -292,38 +292,42 @@ uint8_t gc_execute_line(char *line)
 /// 8c1
   #if (AXIS_T_TYPE == LINEAR)
 	/// axis U, V, W choice
-	  #if AXIS_T == AXIS_U
+	  #if (AXIS_T == AXIS_U)
       case 'U':
-	  #elif AXIS_T == AXIS_V
+    #endif
+	  #if (AXIS_T == AXIS_V)
       case 'V' :
-	  #elif AXIS_T == AXIS_W
+    #endif
+	  #if (AXIS_T == AXIS_W)
       case 'W' :
 	  #endif
-	  #if (AXIS_T == AXIS_U || AXIS_T == AXIS_V || AXIS_T == AXIS_W)
+
+	  #if ((AXIS_T == AXIS_U) || (AXIS_T == AXIS_V) || (AXIS_T == AXIS_W))
         target[T_AXIS] = to_millimeters(value);
         bit_true(axis_words,bit(T_AXIS));
         break;
-      #else
+    #else
         #error
 	  #endif
   #elif (AXIS_T_TYPE == ROTARY)
 	/// axis A, B, C choice
-	#if AXIS_T == AXIS_A
-      case 'A':
-    #elif AXIS_T == AXIS_B
-      case 'B':
-    #elif AXIS_T == AXIS_C
-      case 'C':
-    #endif
-    #if (AXIS_T == AXIS_A|| AXIS_T == AXIS_B || AXIS_T == AXIS_C)
-        target[T_AXIS] = to_degrees(value);
-        bit_true(axis_words,bit(T_AXIS));
-    #else
-      #error
-    #endif
-		break;
+      #if (AXIS_T == AXIS_A)
+        case 'A':
+      #elif (AXIS_T == AXIS_B)
+        case 'B':
+      #elif (AXIS_T == AXIS_C)
+        case 'C':
+      #endif
+
+      #if ((AXIS_T == AXIS_A) || (AXIS_T == AXIS_B) || (AXIS_T == AXIS_C))
+          target[T_AXIS] = to_degrees(value);
+          bit_true(axis_words,bit(T_AXIS));
+      #else
+        #error
+      #endif
+      break;
   #else
-    #error
+      #error
   #endif
       default: FAIL(STATUS_UNSUPPORTED_STATEMENT);
     }

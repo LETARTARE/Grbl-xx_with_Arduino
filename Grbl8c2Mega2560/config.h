@@ -45,7 +45,7 @@
 #define BAUD_RATE 57600
 
 /// 8c2  always upload defaults parameter -> 1
-#define ALWAYS_DEFAULTS_SETTINGS  1   /// 0 normal
+#define ALWAYS_DEFAULTS_SETTINGS  0   /// 0 normal
 
 /// 8c1
 //==============================================================================

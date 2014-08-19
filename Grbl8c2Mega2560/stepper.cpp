@@ -32,7 +32,8 @@
 
 #include <avr/interrupt.h>
 #include "stepper.h"
-#include "config.h"          /// AXIS_T_TYPE
+//#include "config.h"          /// AXIS_T_TYPE
+#include "defaults.h"
 #include "settings.h"
 #include "planner.h"
 

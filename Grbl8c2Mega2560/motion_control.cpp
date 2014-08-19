@@ -32,7 +32,8 @@
 #include <math.h>
 #include <stdlib.h>
 #include "settings.h"
-#include "config.h"
+// #include "config.h"
+#include "defaults.h"
 #include "gcode.h"
 #include "motion_control.h"
 #include "spindle_control.h"

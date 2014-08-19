@@ -36,7 +36,7 @@
 #ifndef defaults_h
 #define defaults_h
 
-#include "config.h"    // DEFAULTS_GENERIC
+#include "config.h"
 /// 8c2
 // Checking the definition of "AXIS_T_TYPE"
 #ifndef AXIS_T_TYPE
@@ -44,22 +44,24 @@
 #endif
 
 /// axis choice
- #if AXIS_T_TYPE == LINEAR
-	#define AXIS_U   4
-	#define AXIS_V   5
-	#define AXIS_W   6
+#define AXIS_U   4
+#define AXIS_V   5
+#define AXIS_W   6
+#define AXIS_A   7
+#define AXIS_B   8
+#define AXIS_C   9
+
+#if (AXIS_T_TYPE == LINEAR)
 	// linear axis
-	#define AXIS_T 	AXIS_U  /// ==> You must choose your fourth linear axis  <==
- #elif AXIS_T_TYPE == ROTARY
-	#define AXIS_A   7
-	#define AXIS_B   8
-	#define AXIS_C   9
+	#define AXIS_T 	AXIS_W  /// ==> You must choose your fourth linear axis  <==
+#elif (AXIS_T_TYPE == ROTARY)
 	// rotary axis
-	#define AXIS_T 	AXIS_A  /// ==> You must choose your rotary fourth axis  <==
- #else
+	#define AXIS_T 	AXIS_C  /// ==> You must choose your rotary fourth axis  <==
+#else
 	/// -> (X, Y, Z)
 	#error "The macro "AXIS_T" is not initialized"
- #endif
+#endif
+
 
  // Checking the definition of "AXIS_T"
  #ifndef AXIS_T

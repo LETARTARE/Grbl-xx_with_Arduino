@@ -44,7 +44,8 @@
 #include "coolant_control.h"
 
 /// 8c1
-#include "config.h"	/// AXIS_T_TYPE
+//#include "config.h"	/// AXIS_T_TYPE
+#include "defaults.h"
 //  the axes  -> GRBL_AXIS
 #if (AXIS_T_TYPE == LINEAR)
 	#if AXIS_T == AXIS_U
@@ -86,7 +87,7 @@ void report_status_message (uint8_t status_code) {
         printPgmString (PSTR ("ok\r\n") );
     }
     else {
-        printPgmString (PSTR ("Grbl error: ") );
+        printPgmString (PSTR ("error grbl: ") );
 
         switch (status_code) {
             case STATUS_BAD_NUMBER_FORMAT:
@@ -208,7 +209,7 @@ void report_feedback_message (uint8_t message_code) {
 // Welcome message
 void report_init_message() {
 	printPgmString(PSTR("\r\nMega2560 with 4 axes " GRBL_AXIS));
-	//printPgmString(PSTR("\r\nGrbl " GRBL_VERSION ));
+	//printPgmString(PSTR("\r\nGrbl " GRBL_VERSION));
 	//printPgmString(PSTR("\r\n['$' for help]\r\n"));
     printPgmString (PSTR ("\r\nGrbl " GRBL_VERSION " ['$' for help]\r\n") );
 }

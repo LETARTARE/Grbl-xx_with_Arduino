@@ -35,6 +35,7 @@
 #include "print.h"
 #include "settings.h"
 #include "config.h"        // LINE_BUFFER_SIZE
+#include "defaults.h"
 #include "nuts_bolts.h"
 #include "stepper.h"
 #include "report.h"

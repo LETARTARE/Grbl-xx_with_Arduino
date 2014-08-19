@@ -112,7 +112,7 @@
 #endif
 
 
-#ifdef PIN_MAP_ARDUINO_MEGA_2560 // Working @EliteEng
+#ifdef PIN_MAP_ARDUINO_MEGA_2560
 
 #ifndef AXIS_T_TYPE
     #error "The macro "AXIS_T_TYPE" is not defined in 'config.h' !"
@@ -202,7 +202,7 @@
 
 #endif
 
-#ifdef PIN_MAP_ARDUINO_MEGA_2560_8c2 // Working @EliteEng
+#ifdef PIN_MAP_ARDUINO_MEGA_2560_4 // Working @EliteEng
 
 #ifndef AXIS_T_TYPE
     #error "The macro "AXIS_T_TYPE" is not defined in 'config.h' !"

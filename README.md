@@ -34,6 +34,8 @@ These are adaptations to build Grbl-xxx in Arduino-xxx (actually xxx=1.0.5 or 1.
 
     B-  UNOFFICIAL VERSIONS 4 AXES     : from the official version 0.8c
 
+===> August 19, 2014 : bug fixed for using V,W or B,C
+
 1- Grbl8c1Mega2560 : grbl-0.8c1 for Mega2560 57600 bauds  4 axes  X, Y, Z, T
                       
                       with axis T in [A, B, C, U, V, W]
@@ -42,6 +44,8 @@ These are adaptations to build Grbl-xxx in Arduino-xxx (actually xxx=1.0.5 or 1.
 		       
                       use GrblController-3.6.1-T1 :
                       https://github.com/LETARTARE/GrblHoming/tree/Letartare
+
+===> August 19, 2014 : bug fixed for using V,W or B,C
 
 2- Grbl8c2Mega2560 : grbl-0.8c2 for Mega2560 57600 bauds  4 axes  X, Y, Z, T * new
                       
