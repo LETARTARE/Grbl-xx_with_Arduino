@@ -1,3 +1,6 @@
+This project is obsolete. Go To  "https://github.com/LETARTARE/grblQ-Mega-4axes"
+
+
 =======================================================================
 
 Grbl_with_Arduino
